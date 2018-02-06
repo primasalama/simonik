@@ -88,7 +88,8 @@ foreach($data->result() as $key){
               if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
               if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
               if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
-              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}
+              if ($key->sesdep == 1) { echo "DEPUTI<br/>";}?></td>
 </tr>
 <?php
 $i++;
@@ -121,7 +122,8 @@ foreach($data->result() as $key){
               if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
               if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
               if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
-              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}
+              if ($key->sesdep == 1) { echo "DEPUTI<br/>";}?></td>
 </tr>
 <?php
 $i++;
@@ -154,7 +156,8 @@ foreach($data->result() as $key){
               if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
               if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
               if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
-              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}
+              if ($key->sesdep == 1) { echo "DEPUTI<br/>";}?></td>
 </tr>
 <?php
 $i++;
@@ -187,7 +190,8 @@ foreach($data->result() as $key){
               if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
               if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
               if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
-              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}
+              if ($key->sesdep == 1) { echo "DEPUTI<br/>";}?></td>
 </tr>
 <?php
 $i++;
@@ -220,10 +224,45 @@ foreach($data->result() as $key){
               if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
               if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
               if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
-              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}
+              if ($key->sesdep == 1) { echo "DEPUTI<br/>";}?></td>
 </tr>
 <?php
 $i++;
 }
 ?>	
+<tr>
+  <th colspan="<?php echo $span;?>"><center><strong>DEPUTI</strong></center></th>
+</tr>
+<?PHP
+$data = $this->M_agenda->getAllExcel('deputi');
+$i=1;
+foreach($data->result() as $key){
+  if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}
+              if (date('N',strtotime($key->tanggal)) == 2) {$hari = 'Selasa';}
+              if (date('N',strtotime($key->tanggal)) == 3) {$hari = 'Rabu';}
+              if (date('N',strtotime($key->tanggal)) == 4) {$hari = 'Kamis';}
+              if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
+              if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+
+?>
+<tr>
+  <td><?php echo $i;?></td>
+    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+    <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->kegiatan;?></td>
+    <td><?php echo $key->dari;?></td>
+    <td><?php 
+              if ($key->asdep1 == 1) { echo "ASDEP 1<br/>";}
+              if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
+              if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
+              if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}
+              if ($key->sesdep == 1) { echo "DEPUTI<br/>";}?></td>
+</tr>
+<?php
+$i++;
+}
+?>  
 </table>

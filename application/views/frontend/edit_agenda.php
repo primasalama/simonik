@@ -145,6 +145,12 @@
                                                 Sesdep
                                             </label>
                                         </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="deputi" value="1" <?php if ($data[0]->deputi == 1) {echo "checked";}?>>
+                                                Deputi
+                                            </label>
+                                        </div>
                                     </div>
 							
 							

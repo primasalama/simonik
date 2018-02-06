@@ -57,6 +57,7 @@ class Agenda extends CI_Controller {
 			'asdep3' => $this->input->post('asdep3'),
 			'asdep4' => $this->input->post('asdep4'),
 			'sesdep' => $this->input->post('sesdep'),
+			'deputi' => $this->input->post('deputi'),
 			'tempat' => $this->input->post('tempat'),
 			'dari' => $this->input->post('dari'),
 			// 'yg_menghadiri' => $this->input->post('yg_menghadiri'),
@@ -93,6 +94,7 @@ class Agenda extends CI_Controller {
 			'asdep3' => $this->input->post('asdep3'),
 			'asdep4' => $this->input->post('asdep4'),
 			'sesdep' => $this->input->post('sesdep'),
+			'deputi' => $this->input->post('deputi'),
 			'tempat' => $this->input->post('tempat'),
 			'dari' => $this->input->post('dari'),
 			// 'yg_menghadiri' => $this->input->post('yg_menghadiri'),
@@ -109,7 +111,7 @@ class Agenda extends CI_Controller {
 		$this->M_agenda->updateId($data,$value);
 		$data = $this->M_agenda->getId($value);
 		///print_r($data);die();
-		redirect('agenda/'.$data[0]->role);
+		redirect('agenda');
 	}
 	public function delete($value)
 	{

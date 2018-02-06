@@ -117,6 +117,12 @@
                                                 Sesdep
                                             </label>
                                         </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="deputi" value="1">
+                                                Deputi
+                                            </label>
+                                        </div>
                                     </div>
                                     
                                     <div class="form-group">

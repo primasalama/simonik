@@ -22,7 +22,8 @@
             <a href="<?php echo base_url();?>agenda/asdep2" class="btn btn-default navbar-btn" style="background-color:#0067b5; color: #CCCCCC;">Agenda Asdep2</a>
             <a href="<?php echo base_url();?>agenda/asdep3" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep3</a>
             <a href="<?php echo base_url();?>agenda/asdep4" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Asdep4</a>
-            <a href="<?php echo base_url();?>Sesdep" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">SESDEP</a>
+            <a href="<?php echo base_url();?>agenda/deputi" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Deputi</a>
+            <a href="<?php echo base_url();?>Sesdep" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Agenda Sesdep</a>
             <a href="<?php echo base_url();?>Sesdep" class="btn btn-default navbar-btn" style="background-color: #0067b5; color: #CCCCCC;">Login Agenda</a>
         </ul>
 	</div>
@@ -57,6 +58,7 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep2">Asdep2</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/deputi">Deputi</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/sesdep">Sesdep</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
@@ -75,6 +77,7 @@
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep2">Asdep2</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep3">Asdep3</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/asdep4">Asdep4</a></li>
+                            <li><a href="<?php echo base_url();?>beranda/excels/agenda/deputi">Deputi</a></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda/sesdep">Sesdep</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="<?php echo base_url();?>beranda/excels/agenda">Semua</a></li>
@@ -154,7 +157,8 @@
               if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
               if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
               if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
-              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
+              if ($key->sesdep == 1) { echo "SESDEP <br/>";}
+              if ($key->deputi == 1) { echo "DEPUTI <br/>";}?></td>
               <?php 
               //if ($this->session->userdata('session')) {
                 //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {

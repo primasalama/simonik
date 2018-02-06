@@ -92,7 +92,8 @@ foreach($data->result() as $key){
               if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
               if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
               if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
-              if ($key->sesdep == 1) { echo "SESDEP<br/>";}?></td>
+              if ($key->sesdep == 1) { echo "SESDEP<br/>";}
+              if ($key->deputi == 1) { echo "DEPUTI<br/>";}?></td>
 </tr>
 <?php
 $i++;
