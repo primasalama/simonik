@@ -368,42 +368,43 @@
 	<table id="agenda" class="table table-bordered" >
 		<thead valign="middle" >
 			<tr>
-				<th style="vertical-align:middle">Nos.</th>
-				<th style="vertical-align:middle">Narasi</th>
-        <th style="vertical-align:middle">Tanggal Pengajuan</th>
-				<th style="vertical-align:middle">Rencana Tanggal Pelaksanaan Kegiatan</th>
-        <th style="vertical-align:middle" width="20%">Kegiatan</th>
-        <th style="vertical-align:middle" width="13%">Anggaran (Rp)</th>
-        <th style="vertical-align:middle">Tanggal Pengajuan SP2D</th>
-        <th style="vertical-align:middle">Tanggal SP2D</th>
-        <th style="vertical-align:middle">Tanggal Pencairan</th>
-			</tr>
+              <th>No.</th>
+              <th>Tanggal Kegiatan</th>
+              <th>Pukul</th>
+              <th width="20%">Kegiatan</th>
+              <th width="15%">Dari</th>
+              <th>Peserta Kegiatan</th>
+            </tr>
 		</thead>
 		<tbody>
 			<?php
 				$i=1;
 				foreach ($agenda as $key) {
-				?>
-				<tr>
-					<td><?php echo $i;?></td>
-					<td><?php echo $key->narasi;?></td>
-			        <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td>
-              <td><?php echo $key->tanggal;?></td>
-              <td><?php echo $key->uraian;?></td>
-			        <td><?php echo "Rp " .number_format($key->anggaran);?></td>
-              <?php 
-              //if ($this->session->userdata('session')) {
-                //if ($this->session->userdata('session')[0]->role == 'sesdep' or $this->session->userdata('session')[0]->role == 'admin') {
-                      ?>
-                      <td><?php if($key->tglPengajuanSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPengajuanSpd));}else{echo "-";}?></td>
-                      <td><?php if($key->tglSpd != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglSpd));}else{echo "-";}?></td>
-                      <td><?php if($key->tglPencairan != '0000-00-00'){echo date("d-m-Y",strtotime($key->tglPencairan));}else{echo "-";}?></td>
-                      <?php
-                    //}
-              //}
-                
-              ?>	
-						</tr>
+				if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}
+              if (date('N',strtotime($key->tanggal)) == 2) {$hari = 'Selasa';}
+              if (date('N',strtotime($key->tanggal)) == 3) {$hari = 'Rabu';}
+              if (date('N',strtotime($key->tanggal)) == 4) {$hari = 'Kamis';}
+              if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
+              if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+            ?>
+            <tr>
+              <td><?php echo $i;?></td>
+              <!-- <td><?php echo $key->kegiatan;?></td> -->
+              <!-- <td><?php if($key->tglPengajuan != '0000-00-00'){echo date("d-M-Y",strtotime($key->tglPengajuan));}else{echo "-";}?></td> -->
+              <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+              <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+              <td><?php echo $key->kegiatan;?></td>
+              <td><?php echo $key->dari;?></td>
+              <td><?php 
+              if ($key->asdep1 == 1) { echo "ASDEP 1<br/>";}
+              if ($key->asdep2 == 1) { echo "ASDEP 2<br/>";}
+              if ($key->asdep3 == 1) { echo "ASDEP 3<br/>";}
+              if ($key->asdep4 == 1) { echo "ASDEP 4<br/>";}
+              if ($key->sesdep == 1) { echo "SESDEP <br/>";}
+              if ($key->deputi == 1) { echo "DEPUTI <br/>";}?></td>
+             
+            </tr>
 						<?php
 						$i++;}
 					 ?>
