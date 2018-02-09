@@ -75,34 +75,37 @@ class Progress extends CI_Controller {
 		}
 		$dokumentasi1 =  $this->uploadImage($_FILES['foto1'],'foto1');
 		$dokumentasi2 =  $this->uploadImage($_FILES['foto2'],'foto2');
+		// print_r($dokumentasi2);die();
 		$data = array('narasiKebijakan'=>$this->input->post('narasiKebijakan'),'uraian'=>$this->input->post('uraian'),
 			'tanggal1'=>$tanggal1,'tanggal2'=>$tanggal2,'lokasi'=>$this->input->post('lokasi'),'hasil'=>$this->input->post('hasil'),
 			'tindak_ljt'=>$this->input->post('tindak_ljt'),'arahan'=>$this->input->post('arahan'),'masalah'=>$this->input->post('masalah'),
 			'dokumentasi1'=>$dokumentasi1,'dokumentasi2'=>$dokumentasi2,'created_by'=>$created_by,
 			'updated_by'=>$this->session->userdata('session')[0]->no);
-		//print_r($data);die();
+		// print_r($data);die();
+
 		$this->M_progress->insert($data);
 		redirect('Beranda/view/'.$url_back);
 	}
 	public function uploadImage($image,$name)
 	{
-		//print_r($image);die();
+		// print_r($image);die();
 		if ($image) {
 			$file_name = 'file_'.time();
 			$config['upload_path']   = './assets/images/uploads/'; 
 	        $config['allowed_types'] = 'jpg|png|JPG|PNG|JPEG|jpeg'; 
-	        $config['max_size']      = 20480; 
+	        $config['max_size']      = 204800; 
 	        $config['max_width']     = 5120; 
 	        $config['max_height']    = 3840;  
 	        $config['file_name'] = $file_name;
 	        $this->upload->initialize($config);
          	if ($this->upload->do_upload($name))
             {
+            	// echo "string";die();
             	$img = $this->upload->data();
             	return $img['file_name'];
             }else{
             	return "";
-            	//echo $this->upload->display_errors('<p>', '</p>');
+            	// echo $this->upload->display_errors('<p>', '</p>');
             }
             //redirect('Foto');
          }
