@@ -59,6 +59,9 @@ class Fagenda extends CI_Controller {
 			// 'hasil'=>$this->input->post('hasil'),
 			'created_by'=>$this->session->userdata('session')[0]->no,
 			'updated_by'=>$this->session->userdata('session')[0]->no);
+		if ($this->input->post('tanggal1') != null or $this->input->post('tanggal1') != '' ) {
+			$data['tanggal1'] substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam').":".$this->input->post('menit');
+		}
 		$this->M_agenda->insert($data);
 		redirect('agenda');
 	}
@@ -94,6 +97,9 @@ class Fagenda extends CI_Controller {
 			// 'hasil'=>$this->input->post('hasil'),
 			// 'created_by'=>$this->session->userdata('session')[0]->no,
 			'updated_by'=>$this->session->userdata('session')[0]->no);
+		if ($this->input->post('tanggal1') != null or $this->input->post('tanggal1') != '' ) {
+			$data['tanggal1'] substr($this->input->post('tanggal1'), 6,4)."-".substr($this->input->post('tanggal1'), 0,2)."-".substr($this->input->post('tanggal1'), 3,2)." ".$this->input->post('jam').":".$this->input->post('menit');
+		}
 		$this->M_agenda->updateId($data,$value);
 		$data = $this->M_agenda->getId($value);
 		///print_r($data);die();

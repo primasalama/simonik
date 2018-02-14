@@ -67,6 +67,10 @@
                                         <input type="text" name="tanggal" value="<?php echo date("m/d/Y",strtotime($data[0]->tanggal)); ?>" id="tanggal" class="form-control" placeholder="Tanggal Penyelengaaraan" required="true">
                                     </div>
                                     <div class="form-group">
+                                        <label>Tanggal Akhir Kegiatan : </label>
+                                        <input type="text" name="tanggal1" id="tanggal1" class="form-control" placeholder="Tanggal Akhir Penyelengaaraan" value="<?php if($data[0]->tanggal1 != 0){echo date("m/d/Y",strtotime($data[0]->tanggal1));}?>" >
+                                    </div>
+                                    <div class="form-group">
                                         <label>Waktu Kegiatan (pukul) : </label>
                                         <div class="row">
                                             <div class="col-sm-6">
@@ -181,6 +185,7 @@
 <script>
       $(function() {
         $( '#tanggal' ).datepicker();
+        $( '#tanggal1' ).datepicker();
         $( '#tglPengajuan' ).datepicker();
         $('#pukul').bootstrapMaterialDatePicker({
         	date: false,

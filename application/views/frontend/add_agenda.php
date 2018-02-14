@@ -43,8 +43,12 @@
                                         </select>
                                     </div> -->
                                     <div class="form-group">
-                                        <label>Tanggal Kegiatan : </label>
-                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Penyelengaaraan" required="true">
+                                        <label>Tanggal Awal Kegiatan : </label>
+                                        <input type="text" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Awal Penyelengaaraan" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tanggal Akhir Kegiatan : </label>
+                                        <input type="text" name="tanggal1" id="tanggal1" class="form-control" placeholder="Tanggal Akhir Penyelengaaraan" >
                                     </div>
                                     <div class="form-group">
                                         <label>Waktu Kegiatan (pukul) : </label>
@@ -148,6 +152,7 @@
 <script>
       $(function() {
         $( '#tanggal' ).datepicker();
+        $( '#tanggal1' ).datepicker();
         $( '#tglPengajuan' ).datepicker();
         $('#pukul').bootstrapMaterialDatePicker({
         	date: false,

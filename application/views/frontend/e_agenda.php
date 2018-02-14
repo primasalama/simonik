@@ -56,6 +56,7 @@
 	<th align="center" style="vertical-align:top;">NO</th>
 	<th align="center" style="vertical-align:top;">Tanggal Kegiatan</th>
     <th align="center" style="vertical-align:top;">Pukul</th>
+    <th align="center" style="vertical-align:top;">Tempat</th>
     <th align="center" style="vertical-align:top;">Kegiatan</th>
     <th align="center" style="vertical-align:top;">Dari</th>
     <th align="center" style="vertical-align:top;">Peserta Kegiatan</th>
@@ -75,12 +76,26 @@ foreach($data->result() as $key){
               if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
               if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
               if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+              if (date('N',strtotime($key->tanggal1)) == 1) {$hari1 = 'Senin';}
+              if (date('N',strtotime($key->tanggal1)) == 2) {$hari1 = 'Selasa';}
+              if (date('N',strtotime($key->tanggal1)) == 3) {$hari1 = 'Rabu';}
+              if (date('N',strtotime($key->tanggal1)) == 4) {$hari1 = 'Kamis';}
+              if (date('N',strtotime($key->tanggal1)) == 5) {$hari1 = 'Jumat';}
+              if (date('N',strtotime($key->tanggal1)) == 6) {$hari1 = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal1)) == 7) {$hari1 = 'Minggu';}
 
 ?>
 <tr>
 	<td><?php echo $i;?></td>
-    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+  <td><?php  
+              if ($key->tanggal1 == null) {
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));
+              }else{
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal))." s/d".$hari1.", ".date("d-M-Y",strtotime($key->tanggal1));
+              }
+              ?></td>
     <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->tempat;?></td>
     <td><?php echo $key->kegiatan;?></td>
     <td><?php echo $key->dari;?></td>
     <td><?php 
@@ -110,11 +125,25 @@ foreach($data->result() as $key){
               if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
               if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
               if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+              if (date('N',strtotime($key->tanggal1)) == 1) {$hari1 = 'Senin';}
+              if (date('N',strtotime($key->tanggal1)) == 2) {$hari1 = 'Selasa';}
+              if (date('N',strtotime($key->tanggal1)) == 3) {$hari1 = 'Rabu';}
+              if (date('N',strtotime($key->tanggal1)) == 4) {$hari1 = 'Kamis';}
+              if (date('N',strtotime($key->tanggal1)) == 5) {$hari1 = 'Jumat';}
+              if (date('N',strtotime($key->tanggal1)) == 6) {$hari1 = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal1)) == 7) {$hari1 = 'Minggu';}
 ?>
 <tr>
 	<td><?php echo $i;?></td>
-    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+  <td><?php  
+              if ($key->tanggal1 == null) {
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));
+              }else{
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal))." s/d".$hari1.", ".date("d-M-Y",strtotime($key->tanggal1));
+              }
+              ?></td>
     <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->tempat;?></td>
     <td><?php echo $key->kegiatan;?></td>
     <td><?php echo $key->dari;?></td>
     <td><?php 
@@ -143,12 +172,26 @@ foreach($data->result() as $key){
               if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
               if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
               if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+              if (date('N',strtotime($key->tanggal1)) == 1) {$hari1 = 'Senin';}
+              if (date('N',strtotime($key->tanggal1)) == 2) {$hari1 = 'Selasa';}
+              if (date('N',strtotime($key->tanggal1)) == 3) {$hari1 = 'Rabu';}
+              if (date('N',strtotime($key->tanggal1)) == 4) {$hari1 = 'Kamis';}
+              if (date('N',strtotime($key->tanggal1)) == 5) {$hari1 = 'Jumat';}
+              if (date('N',strtotime($key->tanggal1)) == 6) {$hari1 = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal1)) == 7) {$hari1 = 'Minggu';}
 
 ?>
 <tr>
 	<td><?php echo $i;?></td>
-    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+  <td><?php  
+              if ($key->tanggal1 == null) {
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));
+              }else{
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal))." s/d".$hari1.", ".date("d-M-Y",strtotime($key->tanggal1));
+              }
+              ?></td>
     <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->tempat;?></td>
     <td><?php echo $key->kegiatan;?></td>
     <td><?php echo $key->dari;?></td>
     <td><?php 
@@ -177,12 +220,25 @@ foreach($data->result() as $key){
               if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
               if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
               if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+              if (date('N',strtotime($key->tanggal1)) == 1) {$hari1 = 'Senin';}
+              if (date('N',strtotime($key->tanggal1)) == 2) {$hari1 = 'Selasa';}
+              if (date('N',strtotime($key->tanggal1)) == 3) {$hari1 = 'Rabu';}
+              if (date('N',strtotime($key->tanggal1)) == 4) {$hari1 = 'Kamis';}
+              if (date('N',strtotime($key->tanggal1)) == 5) {$hari1 = 'Jumat';}
+              if (date('N',strtotime($key->tanggal1)) == 6) {$hari1 = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal1)) == 7) {$hari1 = 'Minggu';}
 
 ?>
 <tr>
-	<td><?php echo $i;?></td>
-    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+	<td><?php echo $i;?></td><td><?php  
+              if ($key->tanggal1 == null) {
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));
+              }else{
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal))." s/d".$hari1.", ".date("d-M-Y",strtotime($key->tanggal1));
+              }
+              ?></td>
     <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->tempat;?></td>
     <td><?php echo $key->kegiatan;?></td>
     <td><?php echo $key->dari;?></td>
     <td><?php 
@@ -211,12 +267,26 @@ foreach($data->result() as $key){
               if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
               if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
               if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+              if (date('N',strtotime($key->tanggal1)) == 1) {$hari1 = 'Senin';}
+              if (date('N',strtotime($key->tanggal1)) == 2) {$hari1 = 'Selasa';}
+              if (date('N',strtotime($key->tanggal1)) == 3) {$hari1 = 'Rabu';}
+              if (date('N',strtotime($key->tanggal1)) == 4) {$hari1 = 'Kamis';}
+              if (date('N',strtotime($key->tanggal1)) == 5) {$hari1 = 'Jumat';}
+              if (date('N',strtotime($key->tanggal1)) == 6) {$hari1 = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal1)) == 7) {$hari1 = 'Minggu';}
 
 ?>
 <tr>
 	<td><?php echo $i;?></td>
-    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+  <td><?php  
+              if ($key->tanggal1 == null) {
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));
+              }else{
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal))." s/d".$hari1.", ".date("d-M-Y",strtotime($key->tanggal1));
+              }
+              ?></td>
     <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->tempat;?></td>
     <td><?php echo $key->kegiatan;?></td>
     <td><?php echo $key->dari;?></td>
     <td><?php 
@@ -245,12 +315,26 @@ foreach($data->result() as $key){
               if (date('N',strtotime($key->tanggal)) == 5) {$hari = 'Jumat';}
               if (date('N',strtotime($key->tanggal)) == 6) {$hari = 'Sabtu';}
               if (date('N',strtotime($key->tanggal)) == 7) {$hari = 'Minggu';}
+              if (date('N',strtotime($key->tanggal1)) == 1) {$hari1 = 'Senin';}
+              if (date('N',strtotime($key->tanggal1)) == 2) {$hari1 = 'Selasa';}
+              if (date('N',strtotime($key->tanggal1)) == 3) {$hari1 = 'Rabu';}
+              if (date('N',strtotime($key->tanggal1)) == 4) {$hari1 = 'Kamis';}
+              if (date('N',strtotime($key->tanggal1)) == 5) {$hari1 = 'Jumat';}
+              if (date('N',strtotime($key->tanggal1)) == 6) {$hari1 = 'Sabtu';}
+              if (date('N',strtotime($key->tanggal1)) == 7) {$hari1 = 'Minggu';}
 
 ?>
 <tr>
   <td><?php echo $i;?></td>
-    <td><?php echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));?></td>
+  <td><?php  
+              if ($key->tanggal1 == null) {
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal));
+              }else{
+                echo $hari.", ".date("d-M-Y",strtotime($key->tanggal))." s/d".$hari1.", ".date("d-M-Y",strtotime($key->tanggal1));
+              }
+              ?></td>
     <td><?php echo date("G:i",strtotime(substr($key->tanggal, 10)));?></td>
+    <td><?php echo $key->tempat;?></td>
     <td><?php echo $key->kegiatan;?></td>
     <td><?php echo $key->dari;?></td>
     <td><?php 
