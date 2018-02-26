@@ -109,7 +109,7 @@
               <th>Tempat</th>
               <th width="20%">Kegiatan</th>
               <th width="15%">Dari</th>
-              <th>Peserta Kegiatan</th>
+              <th>Yang Menghadiri Kegiatan</th>
               <?php 
               //if ($this->session->userdata('session'))
               //{
@@ -229,7 +229,9 @@
 <script type="text/javascript">
             $(document).ready(function() {
               $('#kebijakan').DataTable();
-              $('#agenda').DataTable();
+               $('#agenda').DataTable( {
+                "order": [[ 1, "desc" ]]
+              } );
               $('#progress').DataTable();
               $('#myModal').on('shown.bs.modal', function () {
 				  
