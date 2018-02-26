@@ -230,7 +230,7 @@
             $(document).ready(function() {
               $('#kebijakan').DataTable();
                $('#agenda').DataTable( {
-                "order": [[ 1, "desc" ]]
+//                 "order": [[ 1, "desc" ]]
               } );
               $('#progress').DataTable();
               $('#myModal').on('shown.bs.modal', function () {

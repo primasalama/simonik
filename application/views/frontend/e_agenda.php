@@ -67,6 +67,7 @@
 </tr>
 <?PHP
 $data = $this->M_agenda->getAllExcel('asdep1');
+// print_r($data->result());die();
 $i=1;
 foreach($data->result() as $key){
 	if (date('N',strtotime($key->tanggal)) == 1) {$hari = 'Senin';}

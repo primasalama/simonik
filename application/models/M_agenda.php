@@ -5,15 +5,15 @@ class M_agenda extends CI_Model {
 
 	public function getAll()
 	{
-		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by ";
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by  ORDER BY agenda.tanggal DESC";
 		return $this->db->query($sql)->result();
 	}
 	public function getAllExcel($value)
 	{
 		if ($value == null) {
-			$sql = "SELECT agenda.* from agenda";	# code...
+			$sql = "SELECT agenda.* from agenda ORDER BY tanggal DESC";	# code...
 		}else{
-			$sql = "SELECT agenda.*from agenda where agenda.".$value." = 1 ";
+			$sql = "SELECT agenda.*from agenda where agenda.".$value." = 1 ORDER BY tanggal DESC ";
 		}
 		// echo $sql;die();
 		return $this->db->query($sql);
@@ -40,7 +40,7 @@ class M_agenda extends CI_Model {
 	}
 	public function getByAsdep($value='')
 	{
-		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by  where agenda.".$value." = 1 ";
+		$sql = "SELECT agenda.*,user.role,user.name from agenda inner join user on user.no = agenda.created_by  where agenda.".$value." = 1 ORDER BY agenda.tanggal DESC ";
 		return $this->db->query($sql)->result();
 	}
 } 	
