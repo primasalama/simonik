@@ -62,8 +62,9 @@
 	$z=1;
   $j=0;
 	$data = $kprogress->result();
-  //print_r($data);
-	for ($i=0; $i < $kprogress->num_rows() ; $i++) { 
+  // print_r($data);
+  // if ($kprogress->num_rows() != 0 ) {
+    for ($i=0; $i < $kprogress->num_rows() ; $i++) { 
     if (in_array($data[$i]->narasiKebijakan, $array)) {
       //echo "string";die();
     }
@@ -88,8 +89,11 @@
         $j++;
       }
     }
-	}
-  //print_r($baris);
+  // }
+  }
+	
+  // print_r($baris);die();
+  // var_dump(isset($baris));die();
 	?>
 <script type="text/javascript">
 	$(document).ready( function () {
@@ -117,7 +121,8 @@
          <tbody>
            <?php
            $i=1; 
-              foreach ($baris as $key) {
+              if (isset($baris) != false) {
+                foreach ($baris as $key) {
                 ?>
                 <tr>
                   <td><?php echo $key[0];?></td>
@@ -132,27 +137,12 @@
                   <td><?php echo $key[5];?></td>
                   <td><?php echo $key[4];?></td>
                   <td><?php echo $key[3];?></td>
-                  <?php
-                  /* 
-                  if (strlen($key[4]) > 200) {
-                      ?><td><?php echo substr(nl2br($key[4]), 0,200);?><span id="k_masalah_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[4]), 200) ?></span><a data-toggle="collapse" data-target="#k_masalah_<?php echo $i;?>"> Readmore..</a></td><?php
-                    }else{
-                      ?> <td><?php echo nl2br($key[4]);?></td><?php 
-                    }
-                  ?>
-
-                  <?php
-                  /* 
-                    if (strlen($key[3]) > 200) {
-                      ?><td><?php echo substr(nl2br($key[3]), 0,200);?><span id="k_tdklanjut_<?php echo $i;?>" class="collapse"><?php echo substr(nl2br($key[3]), 200) ?></span><a data-toggle="collapse" data-target="#k_tdklanjut_<?php echo $i;?>"> Readmore..</a></td><?php
-                    }else{
-                      ?> <td><?php echo nl2br($key[3]);?></td><?php 
-                    }*/
-                  ?>
+                
                   <td><?php echo $key[6];?></td>
                 </tr>
                 <?php 
                 $i++;
+              }
               }
            ?>
          </tbody>
